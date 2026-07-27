@@ -75,8 +75,21 @@ Figure 3. Standardizing FASTA headers of the combined protein evidence file by r
 
 ![BRAKER2](images/clean_protein2.png)
 
-#### Interpretation
+#### Validation and Summarize BRAKER2 Annotation
+After structural annotation, the BRAKER2 output files were examined to verify successful gene prediction. Command-line utilities were used to summarize the annotation by counting predicted genes, transcripts, and coding sequences, inspecting the GFF annotation file, and calculating the average coding sequence length before evaluating annotation completeness with BUSCO.
 
+#### Representative commands
+```
+grep -c -P "\tgene\t" augustus.hints_iter1.gff
+```
+```
+grep -c -P "\ttranscript\t" augustus.hints_iter1.gff
+```
+```
+grep -c -P "\tCDS\t" augustus.hints_iter1.gff
+```
+
+#### Interpretation
 Protein sequences from multiple related fungal species were combined into a single reference protein dataset to maximize the availability of homology evidence during structural genome annotation. The FASTA headers were subsequently standardized by removing unnecessary metadata, resulting in a clean protein evidence file compatible with BRAKER2. This curated protein dataset was then used as external evidence to improve the accuracy of gene prediction in the assembled Perenniporia cf. tephropora DD18 genome.
 
 ## Step 3 – Structural Annotation Using BRAKER2
