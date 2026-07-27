@@ -39,3 +39,8 @@ export GENEMARK_PATH=~/gmes_linux_64_4
 export PATH=$GENEMARK_PATH:$PATH
 export GM_KEY_PATH=$HOME/.gm_key
 ```
+##### Representative Screenshot
+
+Figure 1. Configuration of the GeneMark-ES environment required for BRAKER2 structural genome annotation.
+
+![QUAST summary](images/quast_summary.png)
