@@ -63,6 +63,12 @@ Figure 2. Combining protein evidence files from multiple fungal species into a s
 
 ![BRAKER2](images/clean_protein.png)
 
+#### Representative commands
+```
+sed 's/^>.*|\(.*\)$/>\1/' all_proteins_combined.fasta \
+| sed 's/|/_/g' \
+> all_proteins_clean.fasta
+```
 #### Representative Screenshot
 
 Figure 3. Standardizing FASTA headers of the combined protein evidence file by removing additional metadata to produce a clean protein FASTA compatible with BRAKER2.vv
@@ -91,7 +97,7 @@ braker.pl \
 
 Figure 4. Structural genome annotation using BRAKER2 with a soft-masked genome assembly and homologous protein evidence.
 
-![BRAKER2](images/braker.png)
+![BRAKER2](images/.png)
 
 #### Interpretation
 
