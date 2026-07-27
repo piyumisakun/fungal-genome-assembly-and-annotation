@@ -97,7 +97,7 @@ braker.pl \
 
 Figure 4. Structural genome annotation using BRAKER2 with a soft-masked genome assembly and homologous protein evidence.
 
-![BRAKER2](images/.png)
+![BRAKER2](images/braker2.png)
 
 #### Interpretation
 
