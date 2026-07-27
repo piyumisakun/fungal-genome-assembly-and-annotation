@@ -59,6 +59,36 @@ cat *.fasta > all_proteins_combined.fasta
 ```
 #### Representative Screenshot
 
-Figure 2. Preparation of homologous protein evidence by combining protein datasets from related fungal species and standardizing FASTA headers before structural genome annotation.
+Figure 2. Combining protein evidence files from multiple fungal species into a single FASTA file for use as protein homology evidence during BRAKER2 structural genome annotation.
 
 ![BRAKER2](images/clean_protein.png)
+
+#### Representative Screenshot
+
+Figure 3. Standardizing FASTA headers of the combined protein evidence file by removing additional metadata to produce a clean protein FASTA compatible with BRAKER2.vv
+
+![BRAKER2](images/clean_protein2.png)
+
+#### Interpretation
+
+Protein sequences from multiple related fungal species were combined into a single reference protein dataset to maximize the availability of homology evidence during structural genome annotation. The FASTA headers were subsequently standardized by removing unnecessary metadata, resulting in a clean protein evidence file compatible with BRAKER2. This curated protein dataset was then used as external evidence to improve the accuracy of gene prediction in the assembled Perenniporia cf. tephropora DD18 genome.
+
+## Step 3 – Structural Annotation Using BRAKER2
+### Methodology
+BRAKER2 was executed using the soft-masked genome assembly together with the cleaned protein evidence database. Protein homology information was incorporated during gene prediction to generate high-confidence structural annotations.
+
+#### Representative command
+```
+braker.pl \
+--genome=sspace_output.filtered_1000.fasta.masked \
+--prot_seq=all_proteins_clean.fasta \
+--softmasking \
+--species=Perenniporia \
+--cores=12 \
+--workingdir=braker_run
+```
+#### Representative Screenshot
+
+Figure 4. Structural genome annotation using BRAKER2 with a soft-masked genome assembly and homologous protein evidence.
+
+![BRAKER2](images/clean_protein2.png)
