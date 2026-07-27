@@ -33,14 +33,32 @@ High-quality Annotated Proteins
 ### Methodology
 Before annotation, the GeneMark-ES package was configured within the BRAKER2 environment by extracting the software, defining the required environment variables, and verifying the GeneMark license file. This ensured that all dependencies required by BRAKER2 were available before running structural annotation.
 
-### Representative command
+#### Representative command
 ```
 export GENEMARK_PATH=~/gmes_linux_64_4
 export PATH=$GENEMARK_PATH:$PATH
 export GM_KEY_PATH=$HOME/.gm_key
 ```
-##### Representative Screenshot
+#### Representative Screenshot
 
 Figure 1. Configuration of the GeneMark-ES environment required for BRAKER2 structural genome annotation.
 
-![QUAST summary](images/quast_summary.png)
+![BRAKER2](images/gm_key.png)
+
+#### Interpretation
+
+The GeneMark software was successfully configured by defining the executable path and license file, enabling BRAKER2 to access GeneMark during gene prediction.
+
+## Step 2 – Prepare Protein Evidence
+### Methodology
+Protein sequences from several related fungal species were collected, combined into a single FASTA file, and cleaned to remove unnecessary header information. The resulting protein database served as external evidence for BRAKER2 gene prediction.
+
+#### Representative commands
+```
+cat *.fasta > all_proteins_combined.fasta
+```
+#### Representative Screenshot
+
+Figure 2. Preparation of homologous protein evidence by combining protein datasets from related fungal species and standardizing FASTA headers before structural genome annotation.
+
+![BRAKER2](images/clean_protein.png)
