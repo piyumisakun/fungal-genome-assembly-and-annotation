@@ -34,5 +34,23 @@ Final Confirmed Laccase Genes
 ## Step 1. Retrieve Candidate Laccase Proteins
 
 ### Representative command
+```
+grep -i "laccase" ../interproscan_results.tsv \
+| cut -f1 \
+| sort \
+| uniq > laccase_ids.txt
+```
+
+```
+seqtk subseq ../braker_sequences_proteins.fa \
+laccase_ids.txt \
+> laccases_proteins.fa
+```
+
+#### Representative Screenshot
+
+Figure 1- Execution of AGAT for standardizing the BRAKER2 GFF3 annotation and validating annotation integrity prior to downstream functional annotation.
+
+![AGAT](images/AGAT1.png)
 
 
