@@ -51,6 +51,6 @@ laccase_ids.txt \
 
 Figure 1- Execution of AGAT for standardizing the BRAKER2 GFF3 annotation and validating annotation integrity prior to downstream functional annotation.
 
-![AGAT](images/AGAT1.png)
+![Laccase](images/1.png)
 
 
