@@ -7,7 +7,7 @@ This module describes the workflow used to identify putative laccase genes from 
 Laccases are multicopper oxidase enzymes involved in lignin degradation by white-rot fungi. Because genome annotation predicts many multicopper oxidase proteins, additional validation is required to identify true laccase genes. This workflow combines functional annotation, conserved domain analysis, sequence extraction, and protein validation to identify high-confidence laccase genes for downstream characterization.
 
 ## Workflow
-
+```
 InterProScan Annotation
           │
           ▼
@@ -30,3 +30,6 @@ Evaluate Domain Architecture
           │
           ▼
 Final Confirmed Laccase Genes
+```
+### Step 1. Retrieve Candidate Laccase Proteins
+
