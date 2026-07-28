@@ -31,5 +31,8 @@ Evaluate Domain Architecture
           ▼
 Final Confirmed Laccase Genes
 ```
-### Step 1. Retrieve Candidate Laccase Proteins
+## Step 1. Retrieve Candidate Laccase Proteins
+
+### Representative command
+
 
