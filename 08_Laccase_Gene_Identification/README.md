@@ -11,7 +11,7 @@ Laccases are multicopper oxidase enzymes involved in lignin degradation by white
 InterProScan Annotation
           │
           ▼
-Retrieve Candidate Laccase Proteins
+Extraction of Candidate Laccase Proteins
           │
           ▼
 Retrieve Coding Sequences
@@ -31,7 +31,7 @@ Evaluate Domain Architecture
           ▼
 Final Confirmed Laccase Genes
 ```
-## Step 1. Retrieve Candidate Laccase Proteins
+## Step 1. Extraction of Candidate Laccase Proteins
 
 ### Representative command
 ```
