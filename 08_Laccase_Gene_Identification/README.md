@@ -17,7 +17,7 @@ Extraction of Candidate Laccase Proteins
 Retrieve Coding Sequences
           │
           ▼
-Search Pfam Domains (HMMER)
+Identification of Conserved Copper Oxidase Domains
           │
           ▼
 Confirm Laccase-specific Domains
@@ -33,7 +33,10 @@ Final Confirmed Laccase Genes
 ```
 ## Step 1. Extraction of Candidate Laccase Proteins
 
-### Representative command
+### Purpose
+To identify proteins annotated as laccases from the InterProScan functional annotation results and extract their corresponding amino acid sequences for downstream domain analysis.
+
+#### Representative command
 ```
 grep -i "laccase" ../interproscan_results.tsv \
 | cut -f1 \
@@ -49,8 +52,90 @@ laccase_ids.txt \
 
 #### Representative Screenshot
 
-Figure 1- Execution of AGAT for standardizing the BRAKER2 GFF3 annotation and validating annotation integrity prior to downstream functional annotation.
+Figure 1- Identification of candidate laccase proteins from InterProScan functional annotations and extraction of the corresponding protein sequences using Seqtk.
 
 ![Laccase](images/1.png)
 
+### Interpretation
+Proteins annotated as laccases were identified from the InterProScan annotation results. The corresponding amino acid sequences were extracted from the predicted proteome for subsequent conserved domain analysis.
 
+## Step 2. Retrieve Candidate Coding Sequences
+
+### Purpose
+To retrieve the coding DNA sequences (CDS) corresponding to the candidate laccase proteins for downstream gene characterization and sequence validation.
+
+#### Representative command
+```
+seqtk subseq \
+../braker_sequences_cds.fa \
+laccase_ids.txt \
+> laccases_cds.fa
+```
+
+#### Representative Screenshot
+
+Figure 2. Extraction of coding DNA sequences (CDS) corresponding to candidate laccase proteins using Seqtk.
+
+![Laccase](images/2.png)
+
+### Interpretation
+Coding sequences associated with the candidate laccase proteins were extracted from the predicted CDS dataset for downstream completeness assessment and gene characterization.
+
+## Step 3. Identification of Conserved Copper Oxidase Domains
+
+### Purpose
+To identify conserved multicopper oxidase domains in the candidate laccase proteins using the Pfam database and HMMER, providing evidence for laccase-specific protein signatures.
+
+#### Representative command
+```
+hmmpress Pfam-A.hmm
+```
+```
+hmmscan \
+--domtblout laccase_cu_domains.domtblout \
+Pfam-A.hmm \
+laccases_proteins.fa
+```
+
+#### Representative Screenshot
+
+Figure 3. Preparation of the Pfam Hidden Markov Model database and identification of conserved copper oxidase domains in candidate laccase proteins using HMMER.
+
+![Laccase](images/3.png)
+
+### Interpretation
+Candidate proteins were scanned against the Pfam database to identify conserved multicopper oxidase domains (PF00394, PF07731, and PF07732), providing evidence for putative fungal laccase proteins.
+
+## Step 4. Confirmation of Laccase-Specific Domains
+
+### Purpose
+To confirm candidate proteins containing the characteristic laccase copper oxidase domains and extract the corresponding protein and coding sequences for further validation.
+
+#### Representative Command
+```
+grep -E "PF00394|PF07731|PF07732" \
+laccase_cu_domains.domtblout \
+| cut -f1 \
+| sort \
+| uniq > confirmed_laccase_ids.txt
+```
+```
+seqtk subseq \
+laccases_proteins.fa \
+confirmed_laccase_ids.txt \
+> confirmed_laccases.faa
+```
+```
+seqtk subseq \
+laccases_cds.fa \
+confirmed_laccase_ids.txt \
+> confirmed_laccases_cds.fa
+```
+#### Representative Screenshot
+
+Figure 4. Confirmation of candidate laccase proteins containing conserved copper oxidase domains and extraction of the corresponding protein and coding sequences.
+
+![Laccase](images/4.png)
+
+### Interpretation
+Only proteins containing the characteristic laccase copper oxidase domains were retained. Protein and coding sequences of these confirmed candidates were extracted for further validation.
