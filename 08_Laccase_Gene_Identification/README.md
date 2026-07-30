@@ -128,3 +128,21 @@ confirmed_laccase_ids.txt \
 
 ### Interpretation
 Only proteins containing the characteristic laccase copper oxidase domains were retained. Protein and coding sequences of these confirmed candidates were extracted for further validation.
+
+## Step 5. Assessment of Protein Completeness
+
+### Purpose
+To evaluate whether the confirmed laccase genes represent complete protein-coding sequences by determining the number of proteins, verifying complete coding sequences, and assessing protein lengths.
+
+#### Representative Commands
+
+##### Count confirmed proteins
+```
+grep ">" confirmed_laccases.faa | wc -l
+```
+##### Count confirmed coding sequences
+```
+grep ">" confirmed_laccases_cds.fa | wc -l
+
+##### Check complete ORFs
+
