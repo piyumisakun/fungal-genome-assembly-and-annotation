@@ -72,12 +72,6 @@ laccase_ids.txt \
 > laccases_cds.fa
 ```
 
-#### Representative Screenshot
-
-Figure 2. Extraction of coding DNA sequences (CDS) corresponding to candidate laccase proteins using Seqtk.
-
-![Laccase](images/2.png)
-
 ### Interpretation
 Coding sequences associated with the candidate laccase proteins were extracted from the predicted CDS dataset for downstream completeness assessment and gene characterization.
 
@@ -131,11 +125,6 @@ laccases_cds.fa \
 confirmed_laccase_ids.txt \
 > confirmed_laccases_cds.fa
 ```
-#### Representative Screenshot
-
-Figure 4. Confirmation of candidate laccase proteins containing conserved copper oxidase domains and extraction of the corresponding protein and coding sequences.
-
-![Laccase](images/4.png)
 
 ### Interpretation
 Only proteins containing the characteristic laccase copper oxidase domains were retained. Protein and coding sequences of these confirmed candidates were extracted for further validation.
