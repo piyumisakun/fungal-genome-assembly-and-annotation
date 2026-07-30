@@ -105,14 +105,14 @@ Candidate proteins were scanned against the Pfam database to identify conserved 
 ### Purpose
 To confirm candidate proteins containing the characteristic laccase copper oxidase domains and extract the corresponding protein and coding sequences for further validation.
 
-#### Representative Command
+#### Representative Commands
 ```
-grep -E "PF00394|PF07731|PF07732" \
-laccase_cu_domains.domtblout \
-| cut -f1 \
-| sort \
-| uniq > confirmed_laccase_ids.txt
+grep -E "PF00394|PF07731|PF07732" laccase_cu_domains.domtblout \
+| awk '{print $4}' \
+| sort | uniq > confirmed_laccase_ids.txt
 ```
+This command identifies proteins containing the conserved laccase-specific Pfam domains (PF00394, PF07731, and PF07732), extracts their unique protein IDs from the HMMER domain annotation results, and stores them in a text file for downstream extraction of the corresponding protein and coding sequences.
+
 ```
 seqtk subseq \
 laccases_proteins.fa \
@@ -134,15 +134,5 @@ Only proteins containing the characteristic laccase copper oxidase domains were 
 ### Purpose
 To evaluate whether the confirmed laccase genes represent complete protein-coding sequences by determining the number of proteins, verifying complete coding sequences, and assessing protein lengths.
 
-#### Representative Commands
 
-##### Count confirmed proteins
-```
-grep ">" confirmed_laccases.faa | wc -l
-```
-##### Count confirmed coding sequences
-```
-grep ">" confirmed_laccases_cds.fa | wc -l
-
-##### Check complete ORFs
 
