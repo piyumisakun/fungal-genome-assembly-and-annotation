@@ -79,19 +79,22 @@ fungal-genome-assembly-and-annotation/
 | Software      | Version                            |
 | ------------- | ---------------------------------- |
 | FastQC        | 0.12.1                             |
-| MultiQC       | 1.30                               |
+| MultiQC       | 1.31                               |
 | SPAdes        | 3.15.5                             |
 | SSPACE        | 2.1                                |
-| QUAST         | 5.2.0                              |
-| BUSCO         | 5.7.1                              |
+| QUAST         | 5.3.0                              |
+| BUSCO         | 6.0.0 / 5.5.0                      |
 | BBMap         | 39.06                              |
 | Mosdepth      | 0.3.10                             |
-| RepeatModeler | 2.x                                |
-| RepeatMasker  | 4.x                                |
-| BRAKER2       | latest stable used in the workflow |
-| InterProScan  | 5.x                                |
+| RepeatModeler | 2.0.7                              |
+| RepeatMasker  | 4.2.2                              |
+| BRAKER2       | 2.1.6                              |
+| AGAT          | 0.8.0                              |
+| InterProScan  | 5.76-107.0                         |
 | HMMER         | 3.4                                |
-| Seqtk         | latest stable used in the workflow |
+| Seqtk         | 2.10.1                             |
+| Pilon         | 1.24                               |
+| Blastn        | 2.16.0+                            |
 ---
 ## Skills Demonstrated
 
