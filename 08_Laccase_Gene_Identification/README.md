@@ -136,7 +136,7 @@ Figure 3. Command-lines  for identification of proteins containing conserved lac
 
 ![Laccase](images/4b.png)
 
-### Interpretation
+#### Interpretation
 Only proteins containing the characteristic laccase copper oxidase domains were retained. Protein and coding sequences of these confirmed candidates were extracted for further validation.
 
 ## Step 5. Assessment of Protein Completeness
@@ -144,7 +144,7 @@ Only proteins containing the characteristic laccase copper oxidase domains were 
 ### Purpose
 To evaluate the completeness of the confirmed laccase genes by determining the number of protein and coding sequences, verifying complete open reading frames (ORFs), and calculating protein lengths.
 
-### Representative Command
+### Representative Commands
 #### Count Confirmed Laccase Protein Sequences
 * Counts the total number of confirmed laccase protein sequences.
 ```
@@ -163,7 +163,7 @@ Figure 4. Command-line output showing the total number of confirmed laccase prot
 
 ![Laccase](images/4c.png)
 
-### Interpretation
+#### Interpretation
 The total numbers of confirmed laccase protein sequences and their corresponding coding DNA sequences (CDS) were determined. The equal sequence counts indicate that each confirmed laccase protein has a corresponding coding sequence, providing a consistent dataset for downstream sequence validation and characterization.
 
 #### Assess Coding Sequence Completeness
@@ -185,5 +185,38 @@ header=$0; next}
 END{print header,length(seq)}' confirmed_laccases.faa
 ```
 
+#### Representative Screenshot
 
+Figure 5. Assessment of confirmed laccase proteins by determining the number of protein and coding sequences, evaluating coding sequence completeness, and calculating protein lengths.
 
+![Laccase](images/5a.png)
+
+#### Interpretation
+The confirmed laccase proteins were assessed for sequence completeness by verifying the number of protein and coding sequences, checking coding sequences for complete open reading frames, and determining protein lengths. These analyses ensured that the predicted laccase genes represented complete protein-coding sequences suitable for downstream characterization.
+
+## Step 6. Evaluation of Domain Architecture
+
+### Purpose
+To evaluate the occurrence and distribution of conserved multicopper oxidase domains within each confirmed laccase protein and verify the expected domain organization.
+
+### Representative Commands
+#### Count Conserved Domains
+Counts the number of conserved copper oxidase domains detected in each confirmed laccase protein.
+```
+awk '/^#/ {next} {count[$4]++} END {for (gene in count) print gene, count[gene]}' laccase_cu_domains.domtblout
+```
+
+#### Analyze Domain Composition
+Summarizes the composition and distribution of conserved Pfam domains within each confirmed laccase protein.
+```
+awk '/^#/ {next} {domains[$4][$2]++} END {for (gene in domains) {printf gene; for (d in domains[gene]) printf " %s:%d", d, domains[gene][d]; print ""}}' laccase_cu_domains.domtblout
+```
+#### Representative Screenshot
+
+Figure 6. Evaluation of the conserved domain architecture of confirmed laccase proteins based on Pfam domain annotation results.
+
+![Laccase](images/5b.png)
+
+#### Interpretation
+
+The conserved multicopper oxidase domains identified by HMMER were examined to verify the domain architecture of each confirmed laccase protein. Proteins containing the expected combination of laccase-specific Pfam domains (PF00394, PF07731, and PF07732) were considered high-confidence laccase candidates suitable for downstream analyses.
