@@ -163,7 +163,27 @@ Figure 4. Command-line output showing the total number of confirmed laccase prot
 
 ![Laccase](images/4c.png)
 
+### Interpretation
+The total numbers of confirmed laccase protein sequences and their corresponding coding DNA sequences (CDS) were determined. The equal sequence counts indicate that each confirmed laccase protein has a corresponding coding sequence, providing a consistent dataset for downstream sequence validation and characterization.
 
+#### Assess Coding Sequence Completeness
+* Checks whether each coding sequence begins with a valid start codon (ATG), ends with a valid stop codon (TAA, TAG, or TGA), and has a sequence length that is a multiple of three, indicating a complete open reading frame (ORF).
+```
+awk '/^>/{if(seq){l=length(seq); start=substr(seq,1,3); end=substr(seq,l-2,3);
+if(start!="ATG" || (end!="TAA" && end!="TAG" && end!="TGA")) print header;}
+seq=""; header=$0; next}{seq=seq $0}
+END{l=length(seq); start=substr(seq,1,3); end=substr(seq,l-2,3);
+if(start!="ATG" || (end!="TAA" && end!="TAG" && end!="TGA")) print header}' confirmed_laccases_cds.fa
+```
+
+#### Calculate Protein Lengths
+* Calculates the amino acid length of each confirmed laccase protein to assess sequence completeness.
+```
+awk '/^>/{if(seq){print header,length(seq); seq=""}
+header=$0; next}
+{seq=seq $0}
+END{print header,length(seq)}' confirmed_laccases.faa
+```
 
 
 
