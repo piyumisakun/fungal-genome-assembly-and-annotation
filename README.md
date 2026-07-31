@@ -75,10 +75,23 @@ fungal-genome-assembly-and-annotation/
 | 07   | Functional annotation using InterProScan                                   |
 | 08   | Identification and characterization of laccase genes                       |
 ---
-## Software Used
-
-
-
+## Software and Versions
+| Software      | Version                            |
+| ------------- | ---------------------------------- |
+| FastQC        | 0.12.1                             |
+| MultiQC       | 1.30                               |
+| SPAdes        | 3.15.5                             |
+| SSPACE        | 2.1                                |
+| QUAST         | 5.2.0                              |
+| BUSCO         | 5.7.1                              |
+| BBMap         | 39.06                              |
+| Mosdepth      | 0.3.10                             |
+| RepeatModeler | 2.x                                |
+| RepeatMasker  | 4.x                                |
+| BRAKER2       | latest stable used in the workflow |
+| InterProScan  | 5.x                                |
+| HMMER         | 3.4                                |
+| Seqtk         | latest stable used in the workflow |
 ---
 ## Skills Demonstrated
 
