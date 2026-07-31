@@ -93,7 +93,7 @@ laccases_proteins.fa
 
 #### Representative Screenshot
 
-Figure 3. Preparation of the Pfam Hidden Markov Model database and identification of conserved copper oxidase domains in candidate laccase proteins using HMMER.
+Figure 2. Preparation of the Pfam Hidden Markov Model database and identification of conserved copper oxidase domains in candidate laccase proteins using HMMER.
 
 ![Laccase](images/3.png)
 
@@ -105,20 +105,24 @@ Candidate proteins were scanned against the Pfam database to identify conserved 
 ### Purpose
 To confirm candidate proteins containing the characteristic laccase copper oxidase domains and extract the corresponding protein and coding sequences for further validation.
 
-#### Representative Commands
+### Representative Commands
+#### Identify Confirmed Laccase Protein IDs
+* Identifies proteins containing the conserved laccase-specific Pfam domains (PF00394, PF07731, and PF07732), extracts their unique protein IDs from the HMMER output, and saves them for downstream sequence extraction.
 ```
 grep -E "PF00394|PF07731|PF07732" laccase_cu_domains.domtblout \
 | awk '{print $4}' \
 | sort | uniq > confirmed_laccase_ids.txt
 ```
-This command identifies proteins containing the conserved laccase-specific Pfam domains (PF00394, PF07731, and PF07732), extracts their unique protein IDs from the HMMER domain annotation results, and stores them in a text file for downstream extraction of the corresponding protein and coding sequences.
-
+#### Extract Confirmed Laccase Protein Sequences
+* Extracts the confirmed laccase protein sequences using the validated protein IDs.
 ```
 seqtk subseq \
 laccases_proteins.fa \
 confirmed_laccase_ids.txt \
 > confirmed_laccases.faa
 ```
+#### Extract Confirmed Laccase Coding Sequences (CDS)
+* Extracts the coding sequences (CDS) corresponding to the confirmed laccase proteins.
 ```
 seqtk subseq \
 laccases_cds.fa \
@@ -126,13 +130,40 @@ confirmed_laccase_ids.txt \
 > confirmed_laccases_cds.fa
 ```
 
+#### Representative Screenshot
+
+Figure 3. Command-lines  for identification of proteins containing conserved laccase-specific Pfam domains (PF00394, PF07731, and PF07732) from HMMER domain annotation results, followed by extraction of the corresponding protein and coding DNA sequences using Seqtk.
+
+![Laccase](images/4b.png)
+
 ### Interpretation
 Only proteins containing the characteristic laccase copper oxidase domains were retained. Protein and coding sequences of these confirmed candidates were extracted for further validation.
 
 ## Step 5. Assessment of Protein Completeness
 
 ### Purpose
-To evaluate whether the confirmed laccase genes represent complete protein-coding sequences by determining the number of proteins, verifying complete coding sequences, and assessing protein lengths.
+To evaluate the completeness of the confirmed laccase genes by determining the number of protein and coding sequences, verifying complete open reading frames (ORFs), and calculating protein lengths.
+
+### Representative Command
+#### Count Confirmed Laccase Protein Sequences
+* Counts the total number of confirmed laccase protein sequences.
+```
+grep ">" confirmed_laccases.faa | wc -l
+```
+
+#### Count Confirmed Laccase Coding Sequences
+* Counts the total number of confirmed laccase coding sequences (CDS).
+```
+grep ">" confirmed_laccases_cds.fa | wc -l
+```
+
+#### Representative Screenshot
+
+Figure 4. Command-line output showing the total number of confirmed laccase protein sequences and corresponding coding DNA sequences (CDS) identified after domain-based confirmation.
+
+![Laccase](images/4c.png)
+
+
 
 
 
