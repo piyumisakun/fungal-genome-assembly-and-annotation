@@ -90,11 +90,11 @@ Comparison of the four genome assemblies showed that the initial SPAdes and SSPA
 MultiQC was used to summarize and visualize the QUAST results across the different genome assembly versions, enabling direct comparison of assembly contig-size distributions.
 
 #### Software
-- MultiQC	1.31
+- MultiQC 1.31
 
 #### Representative Screenshot
 
-The screenshot below shows MultiQC visualization of QUAST contig size distribution across three genome assemblies. (A) SPAdes assembly, (B) SSPACE assembly after filtering scaffolds shorter than 1000 bp, and (C) SSPACE scaffolded assembly before filtering. The figure illustrates the reduction in short contigs following filtering while preserving longer contigs.
+Figure 1 MultiQC visualization of QUAST contig size distribution across three genome assemblies. (A) SPAdes assembly, (B) SSPACE assembly after filtering scaffolds shorter than 1000 bp, and (C) SSPACE scaffolded assembly before filtering. The figure illustrates the reduction in short contigs following filtering while preserving longer contigs.
 
 ![MultiQC](images/MultiQCnew.png)
 
@@ -106,10 +106,10 @@ The screenshot below shows MultiQC visualization of QUAST contig size distributi
 BUSCO (Benchmarking Universal Single-Copy Orthologs) was used to assess genome assembly completeness by searching for highly conserved single-copy orthologs from the Basidiomycota lineage dataset, providing a standardized measure of the completeness of the assembled gene space.
 
 #### Software
-- BUSCO 6.0.0
+- BUSCO 6.0.0 / 5.4.4
 
 #### Methodology
-BUSCO v6.0.0 was used to evaluate the completeness of each assembled genome (SPAdes, SSPACE, SSPACE (>1000 bp),	Pilon-polished) using the Basidiomycota lineage dataset (`basidiomycota_odb10`). BUSCO searched the assembly for highly conserved single-copy orthologous genes and classified them as Complete (single-copy or duplicated), Fragmented, or Missing. The resulting completeness metrics were used to assess the quality of the assembled gene space and determine its suitability for downstream genome annotation.
+BUSCO was used to evaluate the completeness of each assembled genome (SPAdes, SSPACE, SSPACE (>1000 bp),	Pilon-polished) using the Basidiomycota lineage dataset (`basidiomycota_odb10`). BUSCO searched the assembly for highly conserved single-copy orthologous genes and classified them as Complete (single-copy or duplicated), Fragmented, or Missing. The resulting completeness metrics were used to assess the quality of the assembled gene space and determine its suitability for downstream genome annotation.
 
 #### Representative command
 ```bash
@@ -121,13 +121,13 @@ busco \
 --cpu 12
 ```
 #### Representative Screenshot
-The screenshot below shows the BUSCO v6.0.0 command used to assess genome assembly completeness using the Basidiomycota lineage dataset.
+Figure 2 The BUSCO v6.0.0 command used to assess genome assembly completeness using the Basidiomycota lineage dataset.
 
 ![BUSCO command](images/busco_command.png)
 
 #### Results
 
-##### BUSCO Completeness Comparison
+#### BUSCO Completeness Comparison
 | BUSCO Metric | SPAdes<br>(BUSCO 5.4.4) | SSPACE<br>(BUSCO 6.0.0) | Filtered (>1000 bp)<br>(BUSCO 6.0.0) | Pilon<br>(BUSCO 6.0.0) |
 |:------------|:-----------------------:|:-----------------------:|:------------------------------------:|:----------------------:|
 | Complete BUSCOs (C) | 603 (79.5%) | 1452 (82.3%) | 1437 (81.5%) | 603 (79.6%) |
@@ -152,11 +152,15 @@ BUSCO analysis demonstrated that the filtered assembly contained the majority of
 #### Purpose
 BBMap was used to evaluate the reliability of the genome assembly by mapping cleaned paired-end Illumina reads back to the assembled genome. Read mapping statistics were used to assess assembly accuracy, mapping efficiency, pairing consistency, and sequencing error rates.
 
+#### Software
+- BBMap 39.06
+
 #### Methodology
 BBMap was used to align cleaned paired-end reads to the SPAdes genome assembly. Mapping statistics, including mapping rate, properly paired reads, insert size distribution, substitution, insertion, and deletion rates, were evaluated to determine the quality and reliability of the assembled genome.
 
 #### Representative command
-```bash
+```
+bash
 bbmap.sh
 ref=/home/ubuntu/contigs.fasta \
 in1=/home/ubuntu/DD18_trim_1.fastq \
@@ -177,11 +181,6 @@ The key BBMap alignment statistics are summarized below.
 | Average coverage | **50.11×** |
 | Reference bases covered | **94.84%** |
 
-#### Representative Screenshot
-The screenshot below shows the BBMap alignment summary generated after mapping paired-end Illumina reads to the assembled genome. 
-
-![BBMap results](images/bbmap_results.png)
-
 #### Interpretation
 The BBMap alignment results demonstrated excellent agreement between the paired-end Illumina sequencing reads and the assembled genome. As summarized in the table and supported by the detailed alignment report, **99.82%** of reads successfully mapped to the assembly, **84.04%** were properly paired, and the average sequencing depth was **50.11×**. Furthermore, **94.84%** of the reference genome was covered by mapped reads, indicating that the assembly is well supported by the sequencing data and is suitable for downstream analyses, including genome annotation, repeat analysis, and gene characterization.
 
@@ -199,21 +198,52 @@ Mosdepth was used to calculate sequencing depth and genome coverage by analyzing
 The BBMap alignment file (mapped.sam) was converted to a sorted and indexed BAM file using Samtools. The sorted BAM file was then analyzed with Mosdepth to calculate genome-wide sequencing depth and coverage statistics. The resulting coverage profiles were used to assess average sequencing depth, genome coverage, and the distribution of read coverage across the assembled genome.
 
 #### Representative command
-```bash
+```
+bash
 mosdepth -t 4 mapped mapped.sorted.bam
 ```
 #### Representative Screenshot
-The screenshot below shows the workflow used to prepare the sorted BAM file and execute Mosdepth for genome-wide sequencing depth analysis.
+Figure 3 The workflow used to prepare the sorted BAM file and execute Mosdepth for genome-wide sequencing depth analysis.
 
 ![mosdepth command](images/mosdepth.png)
 
-#### Results
+### Results
+
+#### Visualization of Mean Coverage per Contig
+
+#### Purpose
+To visualize the distribution of mean sequencing depth across assembled contigs using Mosdepth summary statistics and identify variation in sequencing coverage across the genome.
+
+#### Python Script
+```
+import pandas as pd
+import matplotlib.pyplot as plt
+
+df = pd.read_csv(
+    "/home/ubuntu/mosdepth_results/mapped.mosdepth.summary.txt",
+    sep="\t"
+)
+
+plt.figure(figsize=(10,6))
+plt.bar(df["chrom"], df["mean"])
+plt.xticks([], [])  # hide contig names (too many)
+plt.ylabel("Mean Coverage (X)")
+plt.title("Coverage per Contig (mosdepth summary)")
+
+plt.savefig(
+    "/home/ubuntu/mosdepth_results/coverage_plot.png",
+    dpi=300,
+    bbox_inches="tight"
+)
+
+print("Plot saved to ~/mosdepth_results/coverage_plot.png")
+```
 
 #### Coverage per Contig (Overall)
 
 ![Coverage per Contig](images/coverage_plot.png)
 
-**Figure 1.** Genome-wide mean sequencing coverage across all assembled contigs generated using Mosdepth. The plot shows the overall distribution of coverage, including a small number of high-coverage contigs.
+**Figure 4.** Genome-wide mean sequencing coverage across all assembled contigs generated using Mosdepth. The plot shows the overall distribution of coverage, including a small number of high-coverage contigs.
 
 ---
 
@@ -221,28 +251,84 @@ The screenshot below shows the workflow used to prepare the sorted BAM file and 
 
 ![Coverage per Contig (Zoomed)](images/coverage_plot_zoom.png)
 
-**Figure 2.** Zoomed view of the coverage distribution (capped at 100×) highlighting the coverage pattern across the majority of assembled contigs. This view improves visualization by minimizing the influence of extreme high-coverage contigs.
+**Figure 5.** Zoomed view of the coverage distribution (capped at 100×) highlighting the coverage pattern across the majority of assembled contigs. This view improves visualization by minimizing the influence of extreme high-coverage contigs.
 
 #### Interpretation
 The overall coverage plot indicates that most contigs were covered at moderate sequencing depths, while a small number of contigs exhibited substantially higher coverage. The zoomed view shows that the majority of contigs were covered within the expected range, consistent with the average sequencing depth of approximately 50×. These results indicate that sequencing coverage was generally sufficient and well distributed across the assembled genome, supporting the reliability of the assembly for downstream analyses.
 
+#### GC Content vs. Sequencing Coverage per Contig
+
+#### Purpose
+
+To examine the relationship between GC content and mean sequencing depth across assembled contigs and assess potential GC-related variation in sequencing coverage.
+
+#### Python Script
+1. Prepare GC and coverage data
+```
+from Bio import SeqIO
+import pandas as pd
+
+fasta = "/home/ubuntu/spades_output/contigs.fasta"
+coverage_file = "/home/ubuntu/mosdepth_results/mapped.mosdepth.summary.txt"
+
+df_cov = pd.read_csv(coverage_file, sep="\t")
+
+gc_data = []
+
+for record in SeqIO.parse(fasta, "fasta"):
+    seq = str(record.seq).upper()
+    gc_count = seq.count("G") + seq.count("C")
+    gc_percent = (gc_count / len(seq)) * 100 if len(seq) > 0 else 0
+    gc_data.append([record.id, len(seq), gc_percent])
+
+df_gc = pd.DataFrame(gc_data, columns=["chrom", "length", "GC%"])
+
+df = pd.merge(df_gc, df_cov, on="chrom")
+
+output_file = "/home/ubuntu/mosdepth_results/contig_gc_cov.tsv"
+df.to_csv(output_file, sep="\t", index=False)
+
+print(f"Saved contig GC% + coverage to: {output_file}")
+```
+
+2. Generate GC% vs. coverage plot
+```
+import pandas as pd
+import matplotlib.pyplot as plt
+
+df = pd.read_csv(
+    "/home/ubuntu/mosdepth_results/contig_gc_cov.tsv",
+    sep="\t"
+)
+
+plt.figure(figsize=(8,6))
+plt.scatter(df["GC%"], df["mean"], s=10, alpha=0.6, color="teal")
+
+plt.xlabel("GC%")
+plt.ylabel("Mean Coverage (X)")
+plt.title("GC% vs Coverage per Contig")
+
+plt.savefig(
+    "/home/ubuntu/mosdepth_results/gc_vs_coverage.png",
+    dpi=300,
+    bbox_inches="tight"
+)
+
+plt.show()
+```
+
 #### GC Content vs Coverage
 
-The figure below illustrates the relationship between GC content and mean sequencing coverage for assembled contigs. Each point represents an individual contig.
+**Figure 6.** The figure below illustrates the relationship between GC content and mean sequencing coverage for assembled contigs. Each point represents an individual contig.
 
 ![GC vs Coverage](images/gc_vs_coverage.png)
 
 #### Interpretation
 No strong relationship was observed between GC content and sequencing depth. Most contigs clustered around 52–60% GC, with moderate sequencing coverage, indicating minimal GC-related sequencing bias. A few contigs showed unusually high coverage regardless of GC content, suggesting that these regions may represent repetitive elements or highly abundant sequences rather than GC-dependent coverage variation.
 
+#### Conclusion
 
-#### Interpretation
-
-Mosdepth analysis demonstrated that the assembled genome achieved an average sequencing depth of approximately **50×**, with **94.84%** of reference bases covered by mapped reads. Coverage profiles indicated that most contigs had moderate and relatively uniform sequencing depth, while a small number of contigs exhibited exceptionally high coverage, likely corresponding to repetitive genomic regions. Furthermore, GC content analysis showed no strong relationship between GC percentage and sequencing coverage, suggesting minimal GC bias and providing additional support for the quality and reliability of the genome assembly.
-
-### Conclusion
-
-Mosdepth analysis demonstrated that the assembled genome was supported by high sequencing depth and broad read coverage. The average genome coverage (~50×) and extensive coverage across the reference genome indicate that the assembly is well supported by the sequencing data. Together with the BBMap mapping results, these findings provide strong evidence that the assembly is reliable and suitable for downstream analyses, including genome annotation, repeat identification, and gene characterization.
+Mosdepth analysis demonstrated that the assembled genome was supported by high sequencing depth and broad read coverage. The average genome coverage (~50×) and extensive coverage across the reference genome indicate that the assembly is well supported by the sequencing data. Together with the BBMap mapping results, these findings provide strong evidence that the assembly is reliable and suitable for downstream analyses. The high sequencing depth and broad reference coverage indicate that the assembled genome was well supported by the sequencing reads. Together with the BBMap mapping results, the Mosdepth analysis supports the reliability of the assembly for downstream genome annotation, repeat identification, and gene characterization.
 
 ---
 
