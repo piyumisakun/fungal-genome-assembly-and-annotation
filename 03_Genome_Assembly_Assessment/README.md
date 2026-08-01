@@ -150,13 +150,13 @@ BUSCO analysis demonstrated that the filtered assembly contained the majority of
 ### BBMap
 
 #### Purpose
-BBMap was used to evaluate the reliability of the genome assembly by mapping cleaned paired-end Illumina reads back to the assembled genome. Read mapping statistics were used to assess assembly accuracy, mapping efficiency, pairing consistency, and sequencing error rates.
+BBMap was used to evaluate sequencing read support for the SPAdes-assembled genome by mapping cleaned paired-end Illumina reads back to the assembly. Read mapping statistics were used to assess assembly accuracy, mapping efficiency, pairing consistency, and sequencing support for the assembled genome.
 
 #### Software
 - BBMap 39.06
 
 #### Methodology
-BBMap was used to align cleaned paired-end reads to the SPAdes genome assembly. Mapping statistics, including mapping rate, properly paired reads, insert size distribution, substitution, insertion, and deletion rates, were evaluated to determine the quality and reliability of the assembled genome.
+BBMap was used to align cleaned paired-end reads to the SPAdes-assembled genome. Mapping statistics, including mapping rate, properly paired reads, insert size distribution, substitution, insertion, and deletion rates, were evaluated to determine the quality and reliability of the assembled genome.
 
 #### Representative command
 ```
@@ -192,10 +192,10 @@ BBMap confirmed that the assembled genome is highly consistent with the original
 ### Mosdepth
 
 #### Purpose
-Mosdepth was used to calculate sequencing depth and genome coverage by analyzing the alignment of Illumina paired-end reads to the assembled genome. Coverage statistics were used to evaluate whether the genome assembly had sufficient and uniform sequencing support for downstream analyses.
+Mosdepth was used to calculate sequencing depth and genome coverage by analyzing the alignment of Illumina paired-end reads to the SPAdes-assembled genome. Coverage statistics were used to evaluate whether the genome assembly had sufficient and uniform sequencing support for downstream analyses.
 
 #### Methodology
-The BBMap alignment file (mapped.sam) was converted to a sorted and indexed BAM file using Samtools. The sorted BAM file was then analyzed with Mosdepth to calculate genome-wide sequencing depth and coverage statistics. The resulting coverage profiles were used to assess average sequencing depth, genome coverage, and the distribution of read coverage across the assembled genome.
+The BBMap alignment file (mapped.sam) was converted to a sorted and indexed BAM file using Samtools. The sorted BAM file was then analyzed with Mosdepth to calculate genome-wide sequencing depth and coverage statistics. The resulting coverage profiles were used to assess average sequencing depth, genome coverage, and the distribution of read coverage across the SPAdes-assembled genome.
 
 #### Representative command
 ```
@@ -330,26 +330,11 @@ No strong relationship was observed between GC content and sequencing depth. Mos
 
 Mosdepth analysis demonstrated that the assembled genome was supported by high sequencing depth and broad read coverage. The average genome coverage (~50×) and extensive coverage across the reference genome indicate that the assembly is well supported by the sequencing data. Together with the BBMap mapping results, these findings provide strong evidence that the assembly is reliable and suitable for downstream analyses. The high sequencing depth and broad reference coverage indicate that the assembled genome was well supported by the sequencing reads. Together with the BBMap mapping results, the Mosdepth analysis supports the reliability of the assembly for downstream genome annotation, repeat identification, and gene characterization.
 
----
+## Overall Assembly Assessment and Selection
 
-## Key Outcomes
+The genome assemblies were evaluated using complementary quality assessment approaches. QUAST was used to compare assembly continuity and basic assembly statistics, while BUSCO assessed gene-space completeness. BBMap and Mosdepth were used to evaluate read-mapping support and sequencing coverage using the SPAdes-assembled genome.
 
-- Assembly statistics were evaluated using QUAST.
-- Genome completeness was assessed using BUSCO.
-- High read mapping efficiency was confirmed using BBMap.
-- Genome sequencing depth was estimated using Mosdepth.
-- Quality assessment reports were summarized using MultiQC.
-- The combined assessment demonstrated that the assembled genome was suitable for downstream genome annotation and comparative genomic analyses.
-
----
-
-## Repository Structure
-
-- **QUAST.md** – Assembly statistics assessment
-- **BUSCO.md** – Genome completeness assessment
-- **BBMap.md** – Read mapping assessment
-- **Mosdepth.md** – Genome coverage analysis
-- **MultiQC.md** – Integrated quality assessment report
+Based on the combined assessment of assembly continuity, completeness, read support, and sequencing coverage, the **SSPACE assembly with scaffolds shorter than 1000 bp fltered genome was selected as the final assembly for downstream genome annotation**. Filtering reduced assembly fragmentation while retaining the major genomic sequence content, making the filtered SSPACE assembly more suitable for subsequent structural and functional annotation.
 
 ---
 
