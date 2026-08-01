@@ -2,7 +2,7 @@
 
 ## Overview
 
-This section describes the genome assembly workflow used to reconstruct the genome of *Perenniporia cf. tephropora* DD18 from Illumina paired-end sequencing data. The workflow consisted of de novo genome assembly using SPAdes, followed by scaffolding with SSPACE to improve assembly continuity. The scaffold assembly was subsequently filtered using SeqKit to remove scaffolds shorter than 1000 bp and polished using Pilon to improve assembly accuracy, resulting in a high-quality draft genome assembly suitable for downstream analyses.
+This section describes the genome assembly workflow used to reconstruct the genome of *Perenniporia cf. tephropora* DD18 from Illumina paired-end sequencing data. The workflow consisted of _de novo_ genome assembly using SPAdes, followed by scaffolding with SSPACE to improve assembly continuity. The scaffold assembly was subsequently filtered using SeqKit to remove scaffolds shorter than 1000 bp and polished using Pilon to improve assembly accuracy, resulting in a high-quality draft genome assembly suitable for downstream analyses.
 
 ---
 
