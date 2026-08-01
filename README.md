@@ -83,7 +83,7 @@ fungal-genome-assembly-and-annotation/
 | SPAdes        | 3.15.5                             |
 | SSPACE        | 2.1                                |
 | QUAST         | 5.3.0                              |
-| BUSCO         | 6.0.0 / 5.5.0                      |
+| BUSCO         | 6.0.0 / 5.5.0 / 5.4.4                     |
 | BBMap         | 39.06                              |
 | Mosdepth      | 0.3.10                             |
 | RepeatModeler | 2.0.7                              |
