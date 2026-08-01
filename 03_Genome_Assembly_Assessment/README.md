@@ -6,7 +6,7 @@ Evaluate the quality, completeness, and reliability of the assembled fungal geno
 
 ---
 
-## Rationale for Genome Assembly Assessment
+## Rationale
 
 Following genome assembly, the quality of the assembled genome must be evaluated to determine whether it is suitable for downstream analyses. In this study, four different genome assemblies generated during the assembly workflow were assessed and compared to identify the most reliable assembly.
 
