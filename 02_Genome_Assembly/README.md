@@ -83,7 +83,7 @@ spades.py \
 
 The following screenshot shows the successful execution of SPAdes during de novo genome assembly.
 
-![SPAdes execution](images/Spades.png)
+![SPAdes execution](images/sspace.png)
 
 ## Output
 
