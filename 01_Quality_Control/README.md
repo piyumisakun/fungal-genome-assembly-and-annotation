@@ -15,39 +15,25 @@ This section describes the quality assessment of raw Illumina paired-end sequenc
 
 ---
 
-## Input Data
+### Input Data
 
 - Forward Illumina paired-end reads (FASTQ)
 - Reverse Illumina paired-end reads (FASTQ)
 
 ---
 
-## Software
-
-| Software | Purpose |
-|----------|---------|
-| FastQC | Assess sequencing read quality |
-
----
-
-## Operating System
-
-- Linux (WSL Ubuntu)
-
----
-
-## Methodology
+### Methodology
 
 Raw Illumina paired-end sequencing reads were analyzed using FastQC to evaluate sequencing quality before genome assembly. The analysis included per-base sequence quality, GC content, sequence duplication levels, adapter contamination, and overrepresented sequences.
 
 ---
 
-## Representative Command
+#### Representative Command
 
 ```bash
 fastqc DD18_trim_1.fastq.gz DD18_trim_2.fastq.gz
 ```
-## Representative Screenshot
+#### Representative Screenshot
 
 The screenshot below shows the successful execution of FastQC on the forward (DD18_trim_1.fastq.gz) and reverse (DD18_trim_2.fastq.gz) Illumina paired-end sequencing reads.
 
@@ -57,7 +43,7 @@ The screenshot below shows the successful execution of FastQC on the forward (DD
 
 ## Output
 
-## Quality Assessment Summary
+### Quality Assessment Summary
 | Quality Metric | Forward Reads (R1) | Reverse Reads (R2) | Interpretation |
 |---------------|:------------------:|:------------------:|----------------|
 | Basic Statistics | ✅ Pass | ✅ Pass | Sequencing completed successfully |
@@ -68,7 +54,7 @@ The screenshot below shows the successful execution of FastQC on the forward (DD
 | Adapter Content | ✅ Pass | ✅ Pass | No significant adapter contamination detected |
 | **Overall Assessment** | ✅ Excellent | ✅ Good | Sequencing reads are suitable for genome assembly |
 
-## Interpretation
+### Interpretation
 
 The FastQC analysis demonstrated that both paired-end sequencing datasets were of high quality and suitable for downstream genome assembly. The forward reads (R1) passed all assessed quality metrics, while the reverse reads (R2) showed a warning for the *Per tile Sequence Quality* module. This warning is commonly associated with localized sequencing variation across flow-cell tiles and does not necessarily indicate poor overall read quality. The absence of significant adapter contamination, consistent sequence length distribution, and expected GC content further support the quality of the sequencing data for de novo genome assembly.
 
