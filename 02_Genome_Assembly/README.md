@@ -83,7 +83,7 @@ spades.py \
 
 The following screenshot shows the successful execution of SPAdes during de novo genome assembly.
 
-![SPAdes execution](images/sspace.png)
+![SPAdes execution](images/Spades.png)
 
 ## Output
 
@@ -139,7 +139,7 @@ perl SSPACE_Basic.pl \
 
 The following screenshot shows the successful execution of SSPACE Basic v2.1, including Bowtie indexing, paired-end read mapping, and scaffold construction.
 
-![SSPACE execution](images/SSPACE.png)`
+![SSPACE execution](images/sspace.png)`
 
 ## Output
 
