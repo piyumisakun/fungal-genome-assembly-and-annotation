@@ -190,7 +190,7 @@ Validated Marker Gene for Downstream Analysis
 
 #### Representative Output
 
-**Table X.** Representative summary of NCBI BLASTn validation for the extracted fungal barcode genes. Each extracted marker gene was compared against the NCBI nucleotide database, and the best sequence match was used to confirm gene identity. All marker genes showed high similarity to reference sequences of *Perenniporia tephropora* or its currently accepted name, *Truncospora tephropora*, confirming successful sequence validation.
+**Table 1.** Representative summary of NCBI BLASTn validation for the extracted fungal barcode genes. Each extracted marker gene was compared against the NCBI nucleotide database, and the best sequence match was used to confirm gene identity. All marker genes showed high similarity to reference sequences of *Perenniporia tephropora* or its currently accepted name, *Truncospora tephropora*, confirming successful sequence validation.
 
 | Marker Gene | Best Match                 | Similarity Level | Validation Status |
 |--------------|----------------------------|------------------|-------------------|
