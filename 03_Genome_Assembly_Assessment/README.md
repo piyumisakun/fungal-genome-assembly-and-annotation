@@ -94,7 +94,7 @@ The MultiQC report summarized the QUAST contig size distribution across the geno
 
 The screenshot below shows MultiQC visualization of QUAST contig size distribution across three genome assemblies. (A) SPAdes assembly, (B) SSPACE assembly after filtering scaffolds shorter than 1000 bp, and (C) SSPACE scaffolded assembly before filtering. The figure illustrates the reduction in short contigs following filtering while preserving longer contigs.
 
-![MultiQC](images/MultiQC.png)
+![MultiQC](images/MultiQCnew.png)
 
 ---
 
