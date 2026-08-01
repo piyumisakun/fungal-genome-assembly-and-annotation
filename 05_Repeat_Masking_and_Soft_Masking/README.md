@@ -30,6 +30,10 @@ RepeatMasker
 
 ### Methodology
 
+#### Software
+RepeatModeler 2.0.7
+RepeatMasker 4.2.2
+
 #### Step 1 – Build the Genome Database
 The assembled genome was converted into a searchable database using the BuildDatabase utility provided with RepeatModeler.
 
