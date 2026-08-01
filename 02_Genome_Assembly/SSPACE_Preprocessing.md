@@ -6,6 +6,18 @@ This section describes the preprocessing steps performed before genome scaffoldi
 
 ---
 
+## Rationale
+
+Paired-end sequencing reads require appropriate preparation before genome scaffolding with SSPACE. Preprocessing was therefore performed to verify the FASTQ files, manage large sequencing datasets, and prepare the library configuration required for paired-end read mapping and subsequent scaffolding. This ensured that the input data were correctly formatted and organized for the SSPACE scaffolding workflow.
+
+---
+
+## Methodology
+
+Paired-end FASTQ files were first validated to confirm their format and integrity. Due to the large size of the sequencing datasets, the forward and reverse reads were divided into smaller paired chunks while maintaining synchronization between read pairs. The resulting files were then used to generate the library.txt configuration file required by SSPACE. Following preprocessing, the prepared paired-end read files and library information were used for Bowtie-based read mapping and subsequent genome scaffolding with SSPACE.
+
+---
+
 ## Workflow
 
 ```text
