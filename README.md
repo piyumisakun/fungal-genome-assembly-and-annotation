@@ -66,9 +66,9 @@ fungal-genome-assembly-and-annotation/
 ## Workflow Summary
 | Step | Description                                                                |
 | ---- | -------------------------------------------------------------------------- |
-| 01   | Quality assessment of Illumina sequencing reads using FastQC and MultiQC   |
-| 02   | Genome assembly, scaffolding, filtering, and polishing                     |
-| 03   | Genome assembly quality assessment using QUAST, BUSCO, BBMap, and Mosdepth |
+| 01   | Quality assessment of Illumina sequencing reads using FastQC               |
+| 02   | De novo genome assembly, scaffolding, filtering of short contigs, and genome polishing |            
+| 03   | Genome assembly quality assessment using QUAST, BUSCO, BBMap, Mosdepth, and MultiQC for comparative analysis of multiple assembly versions|
 | 04   | Extraction and validation of fungal DNA barcoding genes                    |
 | 05   | Identification and masking of repetitive genomic regions                   |
 | 06   | Structural genome annotation using BRAKER2                                 |
