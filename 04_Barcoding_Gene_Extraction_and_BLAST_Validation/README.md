@@ -190,16 +190,16 @@ Validated Marker Gene for Downstream Analysis
 
 #### Representative Output
 
-**Table 1.** Representative summary of NCBI BLASTn validation for the extracted fungal barcode genes. Each extracted marker gene was compared against the NCBI nucleotide database, and the best sequence match was used to confirm gene identity. All marker genes showed high similarity to reference sequences of *Perenniporia tephropora* or its currently accepted name, *Truncospora tephropora*, confirming successful sequence validation.
+**Table 1.** Representative summary of NCBI BLASTn validation of the extracted fungal barcode genes. Extracted marker sequences were compared against the NCBI nucleotide database to assess their similarity to reference sequences of *Perenniporia tephropora* and *Truncospora tephropora*. High sequence identity supported the taxonomic correspondence of the extracted regions; however, query coverage varied among markers.
 
-| Marker Gene | Best Match                 | Similarity Level | Validation Status |
-|--------------|----------------------------|------------------|-------------------|
-| ITS          | *Perenniporia tephropora*  | High             | ✓ Validated       |
-| LSU          | *Perenniporia tephropora*  | High             | ✓ Validated       |
-| SSU          | *Perenniporia tephropora*  | High             | ✓ Validated       |
-| TEF1         | *Perenniporia tephropora*  | High             | ✓ Validated       |
-| β-tubulin    | *Truncospora tephropora*   | High             | ✓ Validated       |
-| RPB2         | *Truncospora tephropora*   | High             | ✓ Validated       |
+| Marker Gene | Best Match | Sequence Identity | Query Coverage | Validation |
+|-------------|------------|------------------|----------------|------------|
+| ITS | *Perenniporia tephropora* | High | High | Supported |
+| LSU | *Perenniporia tephropora* | High | Low | Partial support |
+| SSU | *Perenniporia tephropora* | High | Low | Partial support |
+| TEF1 | *Perenniporia tephropora* | High | Low | Partial support |
+| β-tubulin | *Truncospora tephropora* | High | High | Supported |
+| RPB2 | *Truncospora tephropora* | High | High | Supported |
 
 #### Conclusion
 
