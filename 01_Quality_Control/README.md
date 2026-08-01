@@ -2,7 +2,7 @@
 
 ## Overview
 
-This section describes the quality assessment of raw Illumina paired-end sequencing reads prior to genome assembly.
+This section describes the quality assessment of raw Illumina paired-end sequencing reads of _Perenniporia cf. tephropora_ DD18 prior to genome assembly.
 
 ---
 
