@@ -56,6 +56,20 @@ The paired-end sequencing files were verified before scaffolding to ensure that 
 - `DD18_trim_1.fastq`
 - `DD18_trim_2.fastq`
 
+- Paired-end FASTQ files
+        │
+        ▼
+Check file presence and size
+        │
+        ▼
+Inspect representative FASTQ records
+        │
+        ▼
+Confirm basic four-line FASTQ structure
+        │
+        ▼
+Proceed to SSPACE preprocessing
+
 ## Output
 
 Validated paired-end FASTQ files ready for preprocessing.
