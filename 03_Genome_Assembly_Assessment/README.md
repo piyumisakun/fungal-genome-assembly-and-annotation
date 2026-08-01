@@ -51,8 +51,11 @@ The assessment results were compared across all four genome assemblies to identi
 #### Purpose
 QUAST was used to evaluate assembly contiguity and fragmentation using metrics such as N50, L50, total assembly size, GC content, and number of contigs.
 
+#### Software
+- QUAST 5.3.0
+
 #### Methodology
-QUAST v5.3.0 was used to assess four genome assemblies generated during the assembly workflow. The resulting metrics were compared to identify the assembly with the best structural quality.
+QUAST was used to assess four genome assemblies generated during the assembly workflow. The resulting metrics were compared to identify the assembly with the best structural quality.
 
 #### Representative command
 ```bash
@@ -82,13 +85,12 @@ The screenshot below shows the execution of the QUAST command used to compare fo
 #### Interpretation
 Comparison of the four genome assemblies showed that the initial SPAdes and SSPACE assemblies produced similar assembly statistics. Filtering scaffolds shorter than 1000 bp substantially reduced assembly fragmentation and improved continuity, as indicated by an increased N50 (10,705 to 11,930 bp) and a decreased L50 (1,540 to 1,326), while maintaining a stable GC content. These results indicate that scaffold filtering improved assembly quality without altering the overall genome composition.
 
-#### Conclusion
-The QUAST analysis demonstrated that filtering scaffolds shorter than 1000 bp substantially improved assembly continuity while maintaining genome composition. The filtered assembly was therefore selected for downstream genome annotation and subsequent analyses.
-
 ---
 ### MultiQC
+MultiQC was used to summarize and visualize the QUAST results across the different genome assembly versions, enabling direct comparison of assembly contig-size distributions.
 
-The MultiQC report summarized the QUAST contig size distribution across the genome assemblies. The results showed that filtering scaffolds shorter than 1000 bp substantially reduced the number of short contigs while retaining longer contigs, indicating improved assembly continuity. The scaffolded assembly exhibited a similar contig size distribution to the SPAdes assembly prior to filtering, demonstrating that the primary improvement resulted from removing fragmented sequences rather than scaffolding alone.
+#### Software
+- MultiQC	1.31
 
 #### Representative Screenshot
 
@@ -102,6 +104,9 @@ The screenshot below shows MultiQC visualization of QUAST contig size distributi
 
 #### Purpose
 BUSCO (Benchmarking Universal Single-Copy Orthologs) was used to assess genome assembly completeness by searching for highly conserved single-copy orthologs from the Basidiomycota lineage dataset, providing a standardized measure of the completeness of the assembled gene space.
+
+#### Software
+- BUSCO 6.0.0
 
 #### Methodology
 BUSCO v6.0.0 was used to evaluate the completeness of each assembled genome (SPAdes, SSPACE, SSPACE (>1000 bp),	Pilon-polished) using the Basidiomycota lineage dataset (`basidiomycota_odb10`). BUSCO searched the assembly for highly conserved single-copy orthologous genes and classified them as Complete (single-copy or duplicated), Fragmented, or Missing. The resulting completeness metrics were used to assess the quality of the assembled gene space and determine its suitability for downstream genome annotation.
