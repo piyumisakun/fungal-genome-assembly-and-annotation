@@ -12,12 +12,6 @@ Paired-end sequencing reads require appropriate preparation before genome scaffo
 
 ---
 
-## Methodology
-
-Paired-end FASTQ files were first validated to confirm their format and integrity. Due to the large size of the sequencing datasets, the forward and reverse reads were divided into smaller paired chunks while maintaining synchronization between read pairs. The resulting files were then used to generate the library.txt configuration file required by SSPACE. Following preprocessing, the prepared paired-end read files and library information were used for Bowtie-based read mapping and subsequent genome scaffolding with SSPACE.
-
----
-
 ## Workflow
 
 ```text
@@ -38,55 +32,42 @@ Ready for Bowtie Mapping
 
 ---
 
-# 1. FASTQ Validation
+### 1. FASTQ Validation
 
-## Purpose
+#### Purpose
 
-The paired-end sequencing files were verified before scaffolding to ensure that they were correctly formatted and suitable for downstream processing.
+To verify the presence and basic formatting of paired-end FASTQ files before preprocessing and genome scaffolding.
+- Confirm the presence of both paired-end sequencing files.
+- Check that the FASTQ files are non-empty.
+- Inspect representative records for the expected FASTQ structure.
+- Confirm that the files are appropriately formatted for subsequent preprocessing.
 
-## Why was this step necessary?
-
-- Verify FASTQ file integrity.
-- Ensure paired-end read files were complete.
-- Prevent errors during scaffolding.
-- Confirm compatibility with downstream bioinformatics tools.
-
-## Input
+#### Input
 
 - `DD18_trim_1.fastq`
 - `DD18_trim_2.fastq`
 
-- Paired-end FASTQ files
-        │
-        ▼
-Check file presence and size
-        │
-        ▼
-Inspect representative FASTQ records
-        │
-        ▼
-Confirm basic four-line FASTQ structure
-        │
-        ▼
-Proceed to SSPACE preprocessing
+#### Methodology
 
-## Output
+The FASTQ Validation process was performed using the following workflow:
 
-Validated paired-end FASTQ files ready for preprocessing.
-
+- Check the presence and file size of paired-end FASTQ files.
+- Inspect representative FASTQ records.
+- Confirm the expected four-line FASTQ structure.
+- Confirm that the paired-end FASTQ files are appropriately formatted for subsequent preprocessing.
+  
 ---
 
-# 2. Split Large FASTQ Files
+### 2. Split Large FASTQ Files
 
-## Purpose
+#### Purpose
+To divide large paired-end FASTQ files into smaller paired chunks for efficient processing while maintaining the correct pairing of sequencing reads.
 
-The paired-end FASTQ files were divided into smaller paired chunks to improve computational efficiency during genome scaffolding while maintaining paired-end read relationships.
+- Reduce computational demands when processing large sequencing files.
+- Facilitate efficient paired-end read mapping during scaffolding.
+- Preserve the correct relationship between forward and reverse reads.
 
-## Why was this step necessary?
-
-Large sequencing files require substantial memory during read mapping and scaffolding. Splitting the files into smaller paired chunks reduced memory requirements and enabled efficient processing while preserving the correct pairing of sequencing reads.
-
-## Representative Command
+#### Representative Command
 
 ```bash
 split -l 40000 \
@@ -98,13 +79,22 @@ DD18_trim_1_chunk_ \
 
 The same procedure was repeated for the reverse paired-end FASTQ file.
 
-## Representative Image
+#### Representative Image
 
 The following screenshot shows the paired-end FASTQ files being split into smaller chunks prior to SSPACE scaffolding.
 
 ![FASTQ splitting](images/Split.png)
 
-## Output
+#### Methodology
+
+The FASTQ files were split using the following workflow:
+
+- Divide the forward and reverse FASTQ files into smaller chunks.
+- Maintain synchronization between corresponding paired-end reads.
+- Generate paired FASTQ chunks of manageable size.
+- Use the resulting paired chunks for downstream read mapping and SSPACE scaffolding.
+
+#### Output
 
 - Forward read chunks
 - Reverse read chunks
@@ -123,26 +113,27 @@ DD18_trim_2_chunk_02
 
 ---
 
-# 3. Generate the SSPACE Library File
+### 3. Generate the SSPACE Library File
 
-## Purpose
+#### Purpose
 
-A Bash script was developed to automatically generate the `library.txt` configuration file required by SSPACE.
+To automatically generate the `library.txt` configuration file required by SSPACE for paired-end read mapping and genome scaffolding.
 
-## Why was this step necessary?
+- Ensure that each forward read chunk is correctly paired with its corresponding reverse read chunk.
+- Define the library parameters required by SSPACE.
+- Reduce manual editing and minimize errors when preparing the library configuration file.
 
-The library file specifies how paired-end sequencing reads should be interpreted during scaffolding. Automating its generation reduced manual editing, minimized human error, and ensured that every forward read chunk was correctly paired with its corresponding reverse read chunk.
+#### Methodology
 
-The script automatically:
+A Bash script was used to automatically generate the SSPACE `library.txt` file using the following workflow:
 
-- matched forward and reverse read chunks
-- assigned unique library identifiers
-- specified insert size
-- defined insert size variation
-- assigned forward-reverse (FR) read orientation
-- generated a complete `library.txt` file for SSPACE
-
-## Representative Workflow
+- Match corresponding forward and reverse FASTQ chunks.
+- Assign unique library identifiers to each read pair.
+- Specify the insert size and insert-size variation.
+- Define the forward-reverse (FR) read orientation.
+- Generate a complete `library.txt` configuration file for SSPACE.
+  
+#### Representative Workflow
 
 ```text
 Forward Chunks
@@ -157,7 +148,7 @@ Match Read Pairs       │
         ▼              │
 Generate library.txt ◄─┘
 ```
-### Representative Command
+#### Representative Command
 
 ```bash
 
@@ -178,13 +169,13 @@ for file1 in DD18_trim_1.chunk_*; do
     fi
 done
 ```
-## Representative Screenshot
+#### Representative Screenshot
 
 The following screenshot shows the execution of the Bash commands used to automatically generate the `library.txt` configuration file required by SSPACE.
 
 ![Library generation](images/Library.png)
 
-## Output
+#### Output
 
 ```
 library.txt
