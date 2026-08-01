@@ -27,10 +27,17 @@ Validated Marker Genes
 ### Purpose
 The assembled genome was examined to identify candidate regions corresponding to conserved fungal DNA barcode genes, including ITS, LSU, SSU, TEF1, β-tubulin, and RPB2.
 
+#### Software
+- AWK
+- Samtools
+
 ### Step 1 – Identify Candidate Gene Regions
 
 #### Purpose
 Identify candidate genomic regions containing the target barcode gene by aligning a reference gene sequence against the assembled genome using BLASTn.
+
+#### Software
+Blastn 2.16.0+
 
 #### Representative command
 ```
