@@ -99,6 +99,11 @@ The following screenshot shows the successful execution of SPAdes during de novo
 
 SSPACE Basic v2.1 was used to improve genome assembly continuity by linking contigs into scaffolds using paired-end sequencing information.
 
+## Input
+
+- `contigs.fasta`
+- `library.txt
+
 ## Software
 
 - SSPACE Basic v2.1
@@ -134,12 +139,7 @@ perl SSPACE_Basic.pl \
 
 The following screenshot shows the successful execution of SSPACE Basic v2.1, including Bowtie indexing, paired-end read mapping, and scaffold construction.
 
-![SSPACE execution](images/SSPACE.png)
-
-## Input
-
-- `contigs.fasta`
-- `library.txt`
+![SSPACE execution](images/SSPACE.png)`
 
 ## Output
 
