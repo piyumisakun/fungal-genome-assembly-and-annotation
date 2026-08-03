@@ -68,7 +68,7 @@ quast.py \
 ```
 #### Representative Screenshot
 
-The screenshot below shows the execution of the QUAST command used to compare four genome assemblies and generate assembly quality statistics.
+Figure 1. The execution of the QUAST command used to compare four genome assemblies and generate assembly quality statistics.
 
 ![QUAST summary](images/quast_summary.png)
 
@@ -92,7 +92,7 @@ MultiQC was used to summarize and visualize the QUAST results across the differe
 
 #### Representative Screenshot
 
-Figure 1 MultiQC visualization of QUAST contig size distribution across three genome assemblies. (A) SPAdes assembly, (B) SSPACE assembly after filtering scaffolds shorter than 1000 bp, and (C) SSPACE scaffolded assembly before filtering. The figure illustrates the reduction in short contigs following filtering while preserving longer contigs.
+Figure 2. MultiQC visualization of QUAST contig size distribution across three genome assemblies. (A) SPAdes assembly, (B) SSPACE assembly after filtering scaffolds shorter than 1000 bp, and (C) SSPACE scaffolded assembly before filtering. The figure illustrates the reduction in short contigs following filtering while preserving longer contigs.
 
 ![MultiQC](images/MultiQCnew.png)
 
@@ -119,7 +119,7 @@ busco \
 --cpu 12
 ```
 #### Representative Screenshot
-Figure 2 The BUSCO v6.0.0 command used to assess genome assembly completeness using the Basidiomycota lineage dataset.
+Figure 3. The BUSCO v6.0.0 command used to assess genome assembly completeness using the Basidiomycota lineage dataset.
 
 ![BUSCO command](images/busco_command.png)
 
@@ -198,7 +198,7 @@ bash
 mosdepth -t 4 mapped mapped.sorted.bam
 ```
 #### Representative Screenshot
-Figure 3 The workflow used to prepare the sorted BAM file and execute Mosdepth for genome-wide sequencing depth analysis.
+Figure 4. The workflow used to prepare the sorted BAM file and execute Mosdepth for genome-wide sequencing depth analysis.
 
 ![mosdepth command](images/mosdepth.png)
 
@@ -238,7 +238,7 @@ print("Plot saved to ~/mosdepth_results/coverage_plot.png")
 
 ![Coverage per Contig](images/coverage_plot.png)
 
-**Figure 4.** Genome-wide mean sequencing coverage across all assembled contigs generated using Mosdepth. The plot shows the overall distribution of coverage, including a small number of high-coverage contigs.
+Figure 5. Genome-wide mean sequencing coverage across all assembled contigs generated using Mosdepth. The plot shows the overall distribution of coverage, including a small number of high-coverage contigs.
 
 ---
 
@@ -246,7 +246,7 @@ print("Plot saved to ~/mosdepth_results/coverage_plot.png")
 
 ![Coverage per Contig (Zoomed)](images/coverage_plot_zoom.png)
 
-**Figure 5.** Zoomed view of the coverage distribution (capped at 100×) highlighting the coverage pattern across the majority of assembled contigs. This view improves visualization by minimizing the influence of extreme high-coverage contigs.
+Figure 6. Zoomed view of the coverage distribution (capped at 100×) highlighting the coverage pattern across the majority of assembled contigs. This view improves visualization by minimizing the influence of extreme high-coverage contigs.
 
 #### Interpretation
 The overall coverage plot indicates that most contigs were covered at moderate sequencing depths, while a small number of contigs exhibited substantially higher coverage. The zoomed view shows that the majority of contigs were covered within the expected range, consistent with the average sequencing depth of approximately 50×. These results indicate that sequencing coverage was generally sufficient and well distributed across the assembled genome, supporting the reliability of the assembly for downstream analyses.
@@ -314,7 +314,7 @@ plt.show()
 
 #### GC Content vs Coverage
 
-**Figure 6.** The figure below illustrates the relationship between GC content and mean sequencing coverage for assembled contigs. Each point represents an individual contig.
+Figure 7. The figure below illustrates the relationship between GC content and mean sequencing coverage for assembled contigs. Each point represents an individual contig.
 
 ![GC vs Coverage](images/gc_vs_coverage.png)
 
