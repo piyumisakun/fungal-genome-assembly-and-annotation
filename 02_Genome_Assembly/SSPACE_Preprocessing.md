@@ -81,7 +81,7 @@ The same procedure was repeated for the reverse paired-end FASTQ file.
 
 #### Representative Image
 
-The following screenshot shows the paired-end FASTQ files being split into smaller chunks prior to SSPACE scaffolding.
+Figure 1. The paired-end FASTQ files being split into smaller chunks prior to SSPACE scaffolding.
 
 ![FASTQ splitting](images/Split.png)
 
@@ -171,7 +171,7 @@ done
 ```
 #### Representative Screenshot
 
-The following screenshot shows the execution of the Bash commands used to automatically generate the `library.txt` configuration file required by SSPACE.
+Figure 2. The execution of the Bash commands used to automatically generate the `library.txt` configuration file required by SSPACE.
 
 ![Library generation](images/Library.png)
 
