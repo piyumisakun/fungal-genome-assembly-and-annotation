@@ -77,7 +77,7 @@ spades.py \
 
 #### Representative Image
 
-The following screenshot shows the successful execution of SPAdes during de novo genome assembly.
+Figure 1. The successful execution of SPAdes during de novo genome assembly.
 
 ![SPAdes execution](images/Spades.png)
 
@@ -127,7 +127,7 @@ perl SSPACE_Basic.pl \
 
 #### Representative Image
 
-The following screenshot shows the successful execution of SSPACE Basic v2.1, including Bowtie indexing, paired-end read mapping, and scaffold construction.
+Figure 2. The successful execution of SSPACE Basic v2.1, including Bowtie indexing, paired-end read mapping, and scaffold construction.
 
 ![SSPACE execution](images/sspace.png)`
 
@@ -161,7 +161,7 @@ seqkit seq -m 1000 \
 
 #### Representative Image
 
-The following screenshot shows the successful execution of SeqKit filtering and verification of the filtered scaffold assembly statistics.
+Figure 3. The successful execution of SeqKit filtering and verification of the filtered scaffold assembly statistics.
 
 ![SeqKit filtering](images/seqkit.png)
 
@@ -199,7 +199,7 @@ java -jar pilon.jar \
 
 #### Representative Screenshot
 
-The following screenshot shows the successful execution of Pilon during genome assembly polishing.
+Figure 4. The successful execution of Pilon during genome assembly polishing.
 
 ![Pilon polishing](images/Pilon.png)
 
