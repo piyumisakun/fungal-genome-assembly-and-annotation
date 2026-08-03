@@ -198,6 +198,7 @@ bash
 mosdepth -t 4 mapped mapped.sorted.bam
 ```
 #### Representative Screenshot
+
 Figure 4. The workflow used to prepare the sorted BAM file and execute Mosdepth for genome-wide sequencing depth analysis.
 
 ![mosdepth command](images/mosdepth.png)
@@ -236,17 +237,17 @@ print("Plot saved to ~/mosdepth_results/coverage_plot.png")
 
 #### Coverage per Contig (Overall)
 
-![Coverage per Contig](images/coverage_plot.png)
-
 Figure 5. Genome-wide mean sequencing coverage across all assembled contigs generated using Mosdepth. The plot shows the overall distribution of coverage, including a small number of high-coverage contigs.
+
+![Coverage per Contig](images/coverage_plot.png)
 
 ---
 
 #### Coverage per Contig (Zoomed View)
 
-![Coverage per Contig (Zoomed)](images/coverage_plot_zoom.png)
-
 Figure 6. Zoomed view of the coverage distribution (capped at 100×) highlighting the coverage pattern across the majority of assembled contigs. This view improves visualization by minimizing the influence of extreme high-coverage contigs.
+
+![Coverage per Contig (Zoomed)](images/coverage_plot_zoom.png)
 
 #### Interpretation
 The overall coverage plot indicates that most contigs were covered at moderate sequencing depths, while a small number of contigs exhibited substantially higher coverage. The zoomed view shows that the majority of contigs were covered within the expected range, consistent with the average sequencing depth of approximately 50×. These results indicate that sequencing coverage was generally sufficient and well distributed across the assembled genome, supporting the reliability of the assembly for downstream analyses.
