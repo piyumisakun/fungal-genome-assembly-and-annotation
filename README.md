@@ -94,7 +94,7 @@ fungal-genome-assembly-and-annotation/
 | HMMER         | 3.4                                |
 | Seqtk         | 2.10.1                             |
 | Pilon         | 1.24                               |
-| Blastn        | 2.16.0+                            |
+| BLASTn        | 2.16.0+                            |
 ---
 ## Skills Demonstrated
 
