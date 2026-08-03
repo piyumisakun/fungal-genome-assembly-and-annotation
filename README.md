@@ -95,6 +95,9 @@ fungal-genome-assembly-and-annotation/
 | Seqtk         | 2.10.1                             |
 | Pilon         | 1.24                               |
 | BLASTn        | 2.16.0+                            |
+
+**Note:** BUSCO versions varied among individual assessment runs; see the assembly-assessment section for details
+
 ---
 ## Skills Demonstrated
 
