@@ -45,7 +45,7 @@ Final Draft Genome Assembly
 ---
 ## Methodology
 
-The genome assembly workflow consisted of four sequential stages to generate a high-quality fungal genome assembly. First, Illumina paired-end sequencing reads were assembled de novo into contigs using SPAdes. The resulting contigs were then scaffolded with SSPACE by utilizing paired-end read information to improve assembly continuity. Short scaffolds (<1000 bp) were subsequently removed using SeqKit to reduce fragmented and low-confidence sequences. Finally, the filtered assembly was polished with Pilon using aligned Illumina reads to correct base substitutions, insertions, deletions, and local assembly errors. The final polished assembly was used for downstream genome annotation and comparative genomic analyses.
+The genome assembly workflow consisted of four sequential stages to generate a high-quality fungal genome assembly. First, Illumina paired-end sequencing reads were assembled de novo into contigs using SPAdes. The resulting contigs were then scaffolded with SSPACE by utilizing paired-end read information to improve assembly continuity. Short scaffolds (<1000 bp) were subsequently removed using SeqKit to reduce fragmented and low-confidence sequences. Finally, the filtered assembly was polished with Pilon using aligned Illumina reads to correct base substitutions, insertions, deletions, and local assembly errors. Finally the most suitable genome assembly was selected for downstream genome annotation and comparative genomic analyses based on the combined results of the genome assembly quality assessment tools.
 
 ---
 
