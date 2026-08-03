@@ -78,7 +78,7 @@ agat_sp_extract_sequences.pl \
 
 #### Representative Screenshots
 
-Figure 2 & 3 Extraction of coding sequences and predicted protein sequences from the standardized genome annotation using AGAT.
+Figure 2 & 3 Extraction of **coding sequences** and **predicted protein sequences** from the standardized genome annotation using AGAT.
 
 ![AGAT](images/AGAT2.png)
 
