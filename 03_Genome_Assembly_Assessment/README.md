@@ -77,8 +77,6 @@ The screenshot below shows the execution of the QUAST command used to compare fo
 |:-------|-------:|--------:|--------------------:|------:|
 | Genome size (Mb) | 60.41 | 60.41 | 55.59 | 55.59 |
 | Total contigs | 15,627 | 15,627 | 8,289 | 8,289 |
-| Largest contig (bp) | 133,223 | 133,223 | 133,223 | 133,223 |
-| GC (%) | 54.88 | 54.88 | 54.85 | 54.85 |
 | N50 (bp) | 10,705 | 10,705 | **11,930** | 11,927 |
 | L50 | 1,540 | 1,540 | **1,326** | 1,326 |
 
@@ -130,14 +128,11 @@ Figure 2 The BUSCO v6.0.0 command used to assess genome assembly completeness us
 #### BUSCO Completeness Comparison
 | BUSCO Metric | SPAdes<br>(BUSCO 5.4.4) | SSPACE<br>(BUSCO 6.0.0) | Filtered (>1000 bp)<br>(BUSCO 6.0.0) | Pilon<br>(BUSCO 6.0.0) |
 |:------------|:-----------------------:|:-----------------------:|:------------------------------------:|:----------------------:|
-| Complete BUSCOs (C) | 603 (79.5%) | 1452 (82.3%) | 1437 (81.5%) | 603 (79.6%) |
-| Complete and single-copy BUSCOs (S) | 376 (49.6%) | 878 (49.8%) | 874 (49.5%) | 349 (46.0%) |
-| Complete and duplicated BUSCOs (D) | 227 (29.9%) | 574 (32.5%) | 563 (31.9%) | 254 (33.5%) |
-| Fragmented BUSCOs (F) | 94 (12.4%) | 218 (12.4%) | 190 (10.8%) | 96 (12.7%) |
-| Missing BUSCOs (M) | 61 (8.1%) | 94 (5.3%) | 137 (7.8%) | 59 (7.8%) |
-| Total BUSCO groups searched (n) | 758 | 1764 | 1764 | 758 |
-| Genes with internal stop codons (%) | – | 10.9% | 11.0% | 12.4% |
-| Internal stop codons (count) | – | 158 | 158 | 75 |
+| Complete BUSCOs (C) | 79.5% | 82.3% | 81.5% | 79.6% |
+| Complete and single-copy BUSCOs (S) | 49.6% | 49.8% | 49.5% | 46.0% |
+| Complete and duplicated BUSCOs (D) | 29.9% | 32.5% | 31.9% | 33.5% |
+| Fragmented BUSCOs (F) | 12.4% | 12.4% | 10.8% | 12.7% |
+| Missing BUSCOs (M) | 8.1% | 5.3% | 7.8% | 7.8% |
 
 #### Interpretation
 The filtered genome assembly achieved 81.5% complete BUSCOs, including 49.5% single-copy and 31.9% duplicated orthologs. Only 10.8% of BUSCO genes were fragmented, while 7.8% were missing, indicating good representation of the conserved fungal gene space. Approximately 11.0% of complete BUSCOs contained internal stop codons, suggesting that a small proportion of predicted genes may require further refinement.
