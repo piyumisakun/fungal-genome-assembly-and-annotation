@@ -56,7 +56,7 @@ The screenshot below shows the successful execution of FastQC on the forward (DD
 
 ### Interpretation
 
-The FastQC analysis demonstrated that both paired-end sequencing datasets were of high quality and suitable for downstream genome assembly. The forward reads (R1) passed all assessed quality metrics, while the reverse reads (R2) showed a warning for the *Per tile Sequence Quality* module. This warning is commonly associated with localized sequencing variation across flow-cell tiles and does not necessarily indicate poor overall read quality. The absence of significant adapter contamination, consistent sequence length distribution, and expected GC content further support the quality of the sequencing data for de novo genome assembly.
+The FastQC analysis demonstrated that both paired-end sequencing datasets were of high quality and suitable for downstream genome assembly. The forward reads (R1) passed all assessed quality metrics, while the reverse reads (R2) showed a warning for the *Per tile Sequence Quality* module. This warning is commonly associated with localized sequencing variation across flow-cell tiles and does not necessarily indicate poor overall read quality. The absence of significant adapter contamination, consistent sequence length distribution, and expected GC content further support the quality of the sequencing data for_ de novo_ genome assembly.
 
 
 
