@@ -100,7 +100,7 @@ fungal-genome-assembly-and-annotation/
 
 - Linux command-line bioinformatics
 - Genome assembly and polishing
-- Genome quality assessment
+- Genome quality assessment and Python-based genomic data visualization
 - Repeat identification and masking
 - Structural genome annotation
 - Functional protein annotation
